@@ -1,14 +1,16 @@
 import type { IAProvider } from './IAProvider';
 import { loadManual } from '../utils/manualLoader';
 
-const GEMINI_API_URL =
-  'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent';
+const DEFAULT_MODEL = 'gemini-2.5-flash-lite';
+const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models';
 
 export class GeminiProvider implements IAProvider {
   private apiKey: string;
+  private model: string;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, model?: string) {
     this.apiKey = apiKey;
+    this.model = model ?? import.meta.env.VITE_GEMINI_MODEL ?? DEFAULT_MODEL;
   }
 
   async query(intencion: string): Promise<string> {
@@ -38,7 +40,7 @@ ${manual}`;
       },
     };
 
-    const res = await fetch(`${GEMINI_API_URL}?key=${this.apiKey}`, {
+    const res = await fetch(`${BASE_URL}/${this.model}:generateContent?key=${this.apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
