@@ -17,7 +17,7 @@ describe('GeminiProvider', () => {
     const { GeminiProvider } = await import('../providers/GeminiProvider');
     const provider = new GeminiProvider();
 
-    const result = await provider.query('quiero salvar una vida');
+    const result = await provider.query('quiero salvar una vida', 'custodio');
 
     expect(result).toBe('Respuesta Custodio');
     expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -31,7 +31,7 @@ describe('GeminiProvider', () => {
 
     const [, options] = fetchMock.mock.calls[0] as [string, { body: string }];
     const body = JSON.parse(options.body);
-    expect(body).toEqual({ question: 'quiero salvar una vida' });
+    expect(body).toEqual({ question: 'quiero salvar una vida', role: 'custodio' });
   });
 
   it('throws sanitized proxy error on non-ok response', async () => {
@@ -45,7 +45,7 @@ describe('GeminiProvider', () => {
     const { GeminiProvider } = await import('../providers/GeminiProvider');
     const provider = new GeminiProvider();
 
-    await expect(provider.query('hola')).rejects.toThrow('Upstream service error');
+    await expect(provider.query('hola', 'pretor')).rejects.toThrow('Upstream service error');
   });
 
   it('throws when response does not include answer', async () => {
@@ -58,6 +58,6 @@ describe('GeminiProvider', () => {
     const { GeminiProvider } = await import('../providers/GeminiProvider');
     const provider = new GeminiProvider();
 
-    await expect(provider.query('hola')).rejects.toThrow('Invalid proxy response');
+    await expect(provider.query('hola', 'pretor')).rejects.toThrow('Invalid proxy response');
   });
 });

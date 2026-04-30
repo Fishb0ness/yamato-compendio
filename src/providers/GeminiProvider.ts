@@ -1,11 +1,12 @@
 import type { IAProvider } from './IAProvider';
+import type { Role } from './IAProvider';
 
 export class GeminiProvider implements IAProvider {
-  async query(intencion: string): Promise<string> {
+  async query(intencion: string, role: Role): Promise<string> {
     const res = await fetch('/api/query', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: intencion }),
+      body: JSON.stringify({ question: intencion, role }),
     });
 
     if (!res.ok) {

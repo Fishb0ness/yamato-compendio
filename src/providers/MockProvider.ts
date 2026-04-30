@@ -1,7 +1,8 @@
 import { IAProvider } from './IAProvider';
+import type { Role } from './IAProvider';
 
 export class MockProvider implements IAProvider {
-  async query(intencion: string): Promise<string> {
+  async query(intencion: string, _role: Role): Promise<string> {
     const normalized = intencion.toLowerCase();
 
     if (normalized.includes('salvar vida')) {

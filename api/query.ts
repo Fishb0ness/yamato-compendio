@@ -13,6 +13,7 @@ type ServerResponse = {
 
 const GEMINI_MODEL = 'gemini-2.5-flash-lite';
 const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models';
+type Role = 'custodio' | 'pretor';
 
 function getQuestion(body: unknown): string | null {
   if (!body || typeof body !== 'object') return null;
@@ -23,12 +24,35 @@ function getQuestion(body: unknown): string | null {
   return question.length > 0 ? question : null;
 }
 
-function getManualContent(): string {
-  const manualPath = path.resolve(process.cwd(), 'public/data/sgo-manual.md');
+function getRole(body: unknown): Role | null {
+  if (!body || typeof body !== 'object') return null;
+  const raw = (body as { role?: unknown }).role;
+  return raw === 'custodio' || raw === 'pretor' ? raw : null;
+}
+
+function getManualContent(role: Role): string {
+  const manualFile = role === 'custodio' ? 'sgo-manual.md' : 'sgo-manual-pretor.md';
+  const manualPath = path.resolve(process.cwd(), `public/data/${manualFile}`);
   return readFileSync(manualPath, 'utf-8');
 }
 
-function buildSystemPrompt(manual: string): string {
+function buildSystemPrompt(role: Role, manual: string): string {
+  if (role === 'pretor') {
+    return `Eres un asistente experto en las mecánicas del juego de rol SGO (Stream Game Over).
+Tu función es ayudar a un jugador con el rol de PRETOR a entender qué opciones tiene disponibles según el reglamento oficial.
+
+REGLAS IMPORTANTES:
+- Solo puedes responder usando la información del manual SGO que se te proporciona.
+- Siempre responde desde la perspectiva del rol PRETOR exclusivamente.
+- Prioriza explicar Edictos disponibles para Pretor (modo Normal y Absoluto), gestión de Caps, sobrecarga y parry de Edictos cuando aplique.
+- No incluyas mecánicas de Doctrinas de Custodio.
+- Si la pregunta no está relacionada con SGO, indica amablemente que solo puedes ayudar con el reglamento SGO.
+- Sé claro, conciso y útil. Menciona costes de Caps cuando sean relevantes.
+
+MANUAL SGO:
+${manual}`;
+  }
+
   return `Eres un asistente experto en las mecánicas del juego de rol SGO (Stream Game Over).
 Tu función es ayudar a un jugador con el rol de CUSTODIO a entender qué opciones tiene disponibles según el reglamento oficial.
 
@@ -70,6 +94,12 @@ export default async function handler(req: ServerRequest, res: ServerResponse): 
     return;
   }
 
+  const role = getRole(req.body);
+  if (!role) {
+    res.status(400).json({ error: 'role is required' });
+    return;
+  }
+
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     res.status(500).json({ error: 'Server configuration error' });
@@ -77,8 +107,8 @@ export default async function handler(req: ServerRequest, res: ServerResponse): 
   }
 
   try {
-    const manual = getManualContent();
-    const systemPrompt = buildSystemPrompt(manual);
+    const manual = getManualContent(role);
+    const systemPrompt = buildSystemPrompt(role, manual);
     const upstreamResponse = await fetch(`${GEMINI_BASE_URL}/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

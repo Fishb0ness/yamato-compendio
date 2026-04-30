@@ -41,6 +41,8 @@ describe('Spec scenarios', () => {
     getProviderMock.mockReturnValue({ query: vi.fn() });
     const { getByText, getByPlaceholderText, getByRole } = render(<App />);
 
+    fireEvent.click(getByRole('button', { name: 'Custodio' }));
+
     expect(getByText('SGO - Compendio-AI')).toBeTruthy();
     expect(getByPlaceholderText('¿Qué quieres hacer como Custodio?')).toBeTruthy();
     expect(getByRole('button', { name: 'Consultar' })).toBeTruthy();
@@ -54,13 +56,15 @@ describe('Spec scenarios', () => {
 
     const { getByPlaceholderText, getByRole, getByText } = render(<App />);
 
+    fireEvent.click(getByRole('button', { name: 'Custodio' }));
+
     fireEvent.change(getByPlaceholderText('¿Qué quieres hacer como Custodio?'), {
       target: { value: 'quiero salvar una vida' },
     });
     fireEvent.click(getByRole('button', { name: 'Consultar' }));
 
     expect(getByText('Consultando el manual SGO...')).toBeTruthy();
-    expect(query).toHaveBeenCalledWith('quiero salvar una vida');
+    expect(query).toHaveBeenCalledWith('quiero salvar una vida', 'custodio');
 
     flow.resolve('Respuesta Custodio de prueba');
 
@@ -76,6 +80,8 @@ describe('Spec scenarios', () => {
     getProviderMock.mockReturnValue({ query });
 
     const { getByPlaceholderText, getByRole, getByText, queryByText } = render(<App />);
+
+    fireEvent.click(getByRole('button', { name: 'Custodio' }));
 
     fireEvent.change(getByPlaceholderText('¿Qué quieres hacer como Custodio?'), {
       target: { value: 'pregunta con error' },
@@ -93,8 +99,42 @@ describe('Spec scenarios', () => {
     vi.stubGlobal('importMetaEnv', { DEV: false });
     getProviderMock.mockReturnValue({ query: vi.fn() });
 
-    const { queryByText } = render(<App />);
+    const { queryByText, getByRole } = render(<App />);
+
+    fireEvent.click(getByRole('button', { name: 'Custodio' }));
 
     expect(queryByText(/Modo simulación activo/i)).toBeNull();
+  });
+
+  it('shows role selector first and hides query UI until role selected', () => {
+    getProviderMock.mockReturnValue({ query: vi.fn() });
+
+    const { getByRole, queryByPlaceholderText } = render(<App />);
+
+    expect(getByRole('button', { name: 'Custodio' })).toBeTruthy();
+    expect(getByRole('button', { name: 'Pretor' })).toBeTruthy();
+    expect(queryByPlaceholderText('¿Qué quieres hacer como Custodio?')).toBeNull();
+  });
+
+  it('Scenario: user selects Pretor and query is sent with pretor role', async () => {
+    const flow = deferred<string>();
+    const query = vi.fn(() => flow.promise);
+    getProviderMock.mockReturnValue({ query });
+
+    const { getByRole, getByPlaceholderText, getByText } = render(<App />);
+
+    fireEvent.click(getByRole('button', { name: 'Pretor' }));
+    fireEvent.change(getByPlaceholderText('¿Qué quieres hacer como Pretor?'), {
+      target: { value: 'activar edicto de la voz' },
+    });
+    fireEvent.click(getByRole('button', { name: 'Consultar' }));
+
+    expect(query).toHaveBeenCalledWith('activar edicto de la voz', 'pretor');
+
+    flow.resolve('Respuesta Pretor de prueba');
+
+    await waitFor(() => {
+      expect(getByText('Respuesta Pretor de prueba')).toBeTruthy();
+    });
   });
 });

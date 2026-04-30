@@ -28,6 +28,51 @@ body {
   letter-spacing: 0.05em;
 }
 
+.role-selector {
+  background: #1a1a24;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.role-selector-title {
+  color: #c9a84c;
+  font-size: 1.4rem;
+}
+
+.role-selector-subtitle {
+  color: #b6b6c7;
+}
+
+.role-selector-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.role-selector-button {
+  min-height: 3.25rem;
+  border: 1px solid #5a4b23;
+  border-radius: 10px;
+  background: #1f1a0d;
+  color: #e8e8e8;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.1s;
+}
+
+.role-selector-button:hover {
+  border-color: #c9a84c;
+}
+
+.role-selector-button:active {
+  transform: translateY(1px);
+}
+
 .app-form {
   display: flex;
   flex-direction: column;
@@ -123,5 +168,9 @@ body {
 
   .app-button {
     align-self: stretch;
+  }
+
+  .role-selector-actions {
+    grid-template-columns: 1fr;
   }
 }
