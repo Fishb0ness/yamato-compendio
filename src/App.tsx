@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { getProvider } from './providers/providerFactory';
 import type { Role } from './providers/IAProvider';
 import RoleSelector from './components/RoleSelector';
+import AppFooter from './components/AppFooter';
 import './App.css';
 
 export default function App() {
@@ -94,6 +95,8 @@ export default function App() {
           )}
         </>
       )}
+
+      <AppFooter />
     </main>
   );
 }

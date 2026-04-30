@@ -176,6 +176,35 @@ body {
   margin-bottom: 1rem;
 }
 
+.app-footer {
+  margin-top: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #1f1f2e;
+  text-align: center;
+}
+
+.app-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #666;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.app-footer-link:hover {
+  color: #c9a84c;
+}
+
+.app-footer-icon {
+  flex-shrink: 0;
+}
+
+.app-footer-separator {
+  color: #444;
+}
+
 @media (max-width: 480px) {
   body {
     padding: 1rem;
