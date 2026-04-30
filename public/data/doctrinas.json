@@ -1,0 +1,20 @@
+[
+  {
+    "id": "doctrina-001",
+    "tema": "Responsabilidad administrativa",
+    "texto": "La responsabilidad administrativa recae sobre el funcionario custodiado en virtud del artículo 45 SGO.",
+    "acciones": [
+      "Emitir informe preliminar",
+      "Recabar testimonios"
+    ]
+  },
+  {
+    "id": "doctrina-002",
+    "tema": "Procedimiento disciplinario",
+    "texto": "El procedimiento disciplinario inicia con la notificación formal al custodio involucrado.",
+    "acciones": [
+      "Notificar al custodio",
+      "Ofrecer periodo de alegaciones"
+    ]
+  }
+]
