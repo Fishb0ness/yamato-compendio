@@ -1,8 +1,8 @@
 import { IAProvider } from './IAProvider';
 
 export class MockProvider implements IAProvider {
-  async generateResponse(prompt: string): Promise<string> {
-    const normalized = prompt.toLowerCase();
+  async query(intencion: string): Promise<string> {
+    const normalized = intencion.toLowerCase();
 
     if (normalized.includes('salvar vida')) {
       return Promise.resolve(

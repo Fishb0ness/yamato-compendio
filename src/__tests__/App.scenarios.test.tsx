@@ -1,133 +1,91 @@
 import React from 'react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, fireEvent, waitFor, cleanup } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { fireEvent, render, waitFor, cleanup } from '@testing-library/react';
 import App from '../App';
 
-type ProviderKind = 'hf' | 'local' | 'mock';
-
-type FakeProvider = {
-  generateResponse: (prompt: string) => Promise<string>;
-};
-
-const fakeProviders: Record<ProviderKind, FakeProvider> = {
-  hf: { generateResponse: async (prompt) => `HF response to: ${prompt}` },
-  local: { generateResponse: async (prompt) => `Local response to: ${prompt}` },
-  mock: { generateResponse: async () => 'Respuesta simulada por provider mock.' },
-};
-
-const createProviderMock = vi.fn((kind: ProviderKind) => fakeProviders[kind]);
+const getProviderMock = vi.fn();
 
 vi.mock('../providers/providerFactory', () => ({
-  createProvider: (kind: ProviderKind) => createProviderMock(kind),
-  getFallbackProviderKinds: (kind: ProviderKind) => {
-    if (kind === 'hf') return ['local', 'mock'];
-    if (kind === 'local') return ['hf', 'mock'];
-    return [];
-  },
+  getProvider: () => getProviderMock(),
 }));
 
-const doctrinasFixture = [
-  {
-    id: 'doctrina-001',
-    tema: 'Responsabilidad administrativa',
-    texto: 'La responsabilidad administrativa recae sobre el funcionario custodiado.',
-    acciones: ['Emitir informe preliminar', 'Recabar testimonios'],
-  },
-  {
-    id: 'doctrina-002',
-    tema: 'Procedimiento disciplinario',
-    texto: 'El procedimiento disciplinario inicia con notificación formal.',
-    acciones: ['Notificar al custodio', 'Ofrecer periodo de alegaciones'],
-  },
-];
+vi.mock('../utils/manualLoader', () => ({
+  loadManual: vi.fn().mockResolvedValue('MANUAL_TEST_CORTO'),
+}));
+
+type Deferred<T> = {
+  promise: Promise<T>;
+  resolve: (value: T) => void;
+};
+
+function deferred<T>(): Deferred<T> {
+  let resolve!: (value: T) => void;
+  const promise = new Promise<T>((res) => {
+    resolve = res;
+  });
+  return { promise, resolve };
+}
 
 describe('Spec scenarios', () => {
+  beforeEach(() => {
+    vi.stubEnv('VITE_GEMINI_API_KEY', '');
+    getProviderMock.mockReset();
+  });
+
   afterEach(() => {
     cleanup();
-    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
   });
 
-  beforeEach(() => {
-    createProviderMock.mockClear();
+  it('Scenario 1: renders title, textarea and submit button', () => {
+    getProviderMock.mockReturnValue({ query: vi.fn() });
+    const { getByText, getByPlaceholderText, getByRole } = render(<App />);
 
-    fakeProviders.hf.generateResponse = async (prompt: string) => `HF response to: ${prompt}`;
-    fakeProviders.local.generateResponse = async (prompt: string) => `Local response to: ${prompt}`;
-    fakeProviders.mock.generateResponse = async () => 'Respuesta simulada por provider mock.';
-
-    vi.stubGlobal(
-      'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        json: async () => doctrinasFixture,
-      })
-    );
+    expect(getByText('SGO - Compendio-AI')).toBeTruthy();
+    expect(getByPlaceholderText('¿Qué quieres hacer como Custodio?')).toBeTruthy();
+    expect(getByRole('button', { name: 'Consultar' })).toBeTruthy();
+    expect(getByText(/Modo simulación activo/i)).toBeTruthy();
   });
 
-  it('Scenario 1: abre SPA, selecciona doctrina y muestra acciones', async () => {
-    const { getByText } = render(<App />);
+  it('Scenario 2: user submits query, sees loading, then result', async () => {
+    const flow = deferred<string>();
+    const query = vi.fn(() => flow.promise);
+    getProviderMock.mockReturnValue({ query });
+
+    const { getByPlaceholderText, getByRole, getByText } = render(<App />);
+
+    fireEvent.change(getByPlaceholderText('¿Qué quieres hacer como Custodio?'), {
+      target: { value: 'quiero salvar una vida' },
+    });
+    fireEvent.click(getByRole('button', { name: 'Consultar' }));
+
+    expect(getByText('Consultando el manual SGO...')).toBeTruthy();
+    expect(query).toHaveBeenCalledWith('quiero salvar una vida');
+
+    flow.resolve('Respuesta Custodio de prueba');
 
     await waitFor(() => {
-      expect(getByText('Doctrina seleccionada')).toBeTruthy();
+      expect(getByText('Respuesta Custodio de prueba')).toBeTruthy();
     });
-
-    fireEvent.click(getByText('Procedimiento disciplinario'));
-
-    expect(getByText('Notificar al custodio')).toBeTruthy();
-    expect(getByText('Ofrecer periodo de alegaciones')).toBeTruthy();
   });
 
-  it('Scenario 2: input "salvar vida" consulta IA y muestra recomendación explicada vía fallback mock', async () => {
-    fakeProviders.hf.generateResponse = async () => {
-      throw new Error('HF down');
-    };
+  it('Scenario 3: provider throws and app shows error message', async () => {
+    const query = vi.fn(async () => {
+      throw new Error('Fallo del proveedor');
+    });
+    getProviderMock.mockReturnValue({ query });
 
-    fakeProviders.local.generateResponse = async () => {
-      throw new Error('Local down');
-    };
+    const { getByPlaceholderText, getByRole, getByText, queryByText } = render(<App />);
 
-    fakeProviders.mock.generateResponse = async () =>
-      'Recomendación: Hierro + Edicto Sangre. Explicación: protege vida y mantiene trazabilidad.';
-
-    const { getByPlaceholderText, getByText } = render(<App />);
+    fireEvent.change(getByPlaceholderText('¿Qué quieres hacer como Custodio?'), {
+      target: { value: 'pregunta con error' },
+    });
+    fireEvent.click(getByRole('button', { name: 'Consultar' }));
 
     await waitFor(() => {
-      expect(getByText('Doctrina seleccionada')).toBeTruthy();
+      expect(getByText('Fallo del proveedor')).toBeTruthy();
     });
 
-    fireEvent.change(getByPlaceholderText('Escribe tu pregunta...'), { target: { value: 'salvar vida' } });
-    fireEvent.click(getByText('Consultar'));
-
-    await waitFor(() => {
-      expect(getByText(/Hierro \+ Edicto Sangre/i)).toBeTruthy();
-    });
-
-    expect(getByText(/Explicación/i)).toBeTruthy();
-    expect(createProviderMock).toHaveBeenCalledWith('hf');
-    expect(createProviderMock).toHaveBeenCalledWith('local');
-    expect(createProviderMock).toHaveBeenCalledWith('mock');
-  });
-
-  it('Scenario 3: cambiar provider IA no cambia la UI ni el flujo del usuario', async () => {
-    fakeProviders.local.generateResponse = async () => 'Recomendación estable del provider local.';
-
-    const { getByLabelText, getByText, getByPlaceholderText } = render(<App />);
-
-    await waitFor(() => {
-      expect(getByText('Doctrina seleccionada')).toBeTruthy();
-    });
-
-    expect(getByText('Doctrina seleccionada')).toBeTruthy();
-    expect(getByText('Acciones posibles')).toBeTruthy();
-
-    fireEvent.change(getByLabelText(/Proveedor IA/i), { target: { value: 'local' } });
-    fireEvent.change(getByPlaceholderText('Escribe tu pregunta...'), { target: { value: 'consulta estable' } });
-    fireEvent.click(getByText('Consultar'));
-
-    await waitFor(() => {
-      expect(getByText(/Recomendación estable del provider local/i)).toBeTruthy();
-    });
-
-    expect(getByText('Doctrina seleccionada')).toBeTruthy();
-    expect(getByText('Acciones posibles')).toBeTruthy();
+    expect(queryByText('Respuesta')).toBeNull();
   });
 });
