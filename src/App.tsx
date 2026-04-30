@@ -17,6 +17,13 @@ export default function App() {
     typeof devOverride?.DEV === 'boolean' ? devOverride.DEV : import.meta.env.DEV;
   const isUsingMockProvider = isDevEnvironment;
 
+  const handleRoleChange = () => {
+    setRole(null);
+    setQuery('');
+    setResult('');
+    setError('');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
@@ -45,6 +52,10 @@ export default function App() {
         <RoleSelector onSelect={setRole} />
       ) : (
         <>
+          <button className="app-back" onClick={handleRoleChange} aria-label="Cambiar rol">
+            ← Cambiar rol
+          </button>
+
           {isUsingMockProvider && (
             <p className="app-notice" role="status">
               Modo simulación activo: no hay clave de Gemini configurada.

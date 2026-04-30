@@ -73,6 +73,21 @@ body {
   transform: translateY(1px);
 }
 
+.app-back {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.app-back:hover {
+  color: #c9a84c;
+}
+
 .app-form {
   display: flex;
   flex-direction: column;
