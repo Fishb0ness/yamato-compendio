@@ -1,320 +1,211 @@
-# MECÁNICAS ROLERAS DE SGO
-
-> Puedes buscar por palabras usando el atajo `Control+F` en tu buscador y escribiendo los nombres que aparecen en el ÍNDICE.
-
----
-
-## ÍNDICE
-
-- [ARTEFACTOS](#artefactos)
-  - [Artefacto de la Vida](#artefacto-de-la-vida)
-  - [Artefacto del Tiempo](#artefacto-del-tiempo)
-  - [Artefacto de la Muerte](#artefacto-de-la-muerte)
-- [CUSTODIOS](#custodios)
-  - [Doctrina de la Sangre](#doctrina-de-la-sangre)
-  - [Doctrina de la Voluntad](#doctrina-de-la-voluntad)
-  - [Doctrina del Camino](#doctrina-del-camino)
-  - [Doctrina de Hierro](#doctrina-de-hierro)
-- [PRETORES](#pretores)
-  - [Edicto de la Voz](#edicto-de-la-voz)
-  - [Edicto de la Sangre](#edicto-de-la-sangre)
-  - [Edicto de la Alteración](#edicto-de-la-alteración)
-  - [Edicto del Avatar](#edicto-del-avatar)
-  - [Edicto del Juicio](#edicto-del-juicio)
-- [AMPLIABLES](#ampliables)
-- [ALTERACIONES](#alteraciones)
-- [MANUAL](#manual)
-
----
-
-## ARTEFACTOS
-
-Escribiendo `artefactos` en el chat podrás ver los que están disponibles.
-
-Existen **3 tipos de artefactos** a desbloquear y usar.
-
-Los artefactos son capaces de conceder beneficios únicos pero son frágiles de manipular y sus efectos dependen del **Dado Mórfico**.
-
-Para desbloquear los artefactos hay que completar **objetivos/misiones** en directo o que un Pretor utilice un **Edicto del Avatar Absoluto**.
-
----
-
-### Artefacto de la Vida
-
-Concede **1 carga de Escudo** y **1 Vida**.
-*(Este artefacto no se puede usar al morir.)*
-
-| Resultado     | Efecto                                                   |
-|---------------|----------------------------------------------------------|
-| **Pifia**     | Destruye el Artefacto y no aplica su efecto base.        |
-| **Crítico**   | +1 carga de Escudo y +1 Vida.                            |
-
----
-
-### Artefacto del Tiempo
-
-Genera un ampliable de **10 horas**.
-*(próximo fin de semana)*
-
-| Resultado     | Efecto                                                   |
-|---------------|----------------------------------------------------------|
-| **Pifia**     | Destruye el Artefacto y no aplica su efecto base.        |
-| **Crítico**   | +2 horas.                                                |
-
----
-
-### Artefacto de la Muerte
-
-Impide la muerte permanente de **1 módulo/juego** al perder todas las vidas.
-*(Este artefacto se puede usar tras la muerte.)*
-
-| Resultado     | Efecto                                                             |
-|---------------|--------------------------------------------------------------------|
-| **Pifia**     | Destruye todos los artefactos y anula todos sus efectos.           |
-| **Crítico**   | +3 cargas de Escudo.                                               |
-
----
-
-## CUSTODIOS
-
-*Custodios de las viejas Doctrinas.*
-
-Escasos fueron los que inquirieron la gracia del olvido.
-Desafiando la voluntad de la corte de los Dÿmai.
-
-No obstante, lograron fortaleza de la resultante epifanía nacida en la desesperanza, el sacrificio y el valor.
-
-Sacrificaron todo, para obtenerlo todo.
-Portadores de la bendición.
-Defensores de la carga doctrinal hasta el final de sus días.
-
-Portan la capacidad de ejecutar las **4 Doctrinas** disponibles, con cargas mensuales limitadas:
-
-| Doctrina                  | Cargas Mensuales |
-|---------------------------|-----------------|
-| Doctrina de la Sangre     | 1 Carga         |
-| Doctrina de la Voluntad   | 1 Carga         |
-| Doctrina del Camino       | 3 Cargas        |
-| Doctrina de Hierro        | 3 Cargas        |
-
----
-
-### Doctrina de la Sangre
-
-*La mera sospecha de traición, o mal uso de las tecnologías ancestrales.
-Merece arriesgarlo todo, incluso la vida misma para obrar en consecuencia.*
-
-Esta doctrina permite **cancelar un edicto, alteración o uso de artefacto en curso**.
-Contrarrestando sus efectos, destruyéndolo en el proceso.
-
-> **1 Carga Mensual**
-
----
-
-### Doctrina de la Voluntad
-
-*Sin una voluntad inquebrantable, ningún custodio prevalecería en su Odisea.*
-
-Esta doctrina permite activar un **Edicto Absoluto**.
-
-> **1 Carga Mensual**
-
----
-
-### Doctrina del Camino
-
-Los custodios emprenden un camino incierto y sin posibilidad de volver.
-
-Mediante esta Doctrina, podrán crear **misiones artefacto**.
-
-Si un V completa esta misión y un artefacto fuese hallado, el Custodio podría activar un artefacto inmediatamente.
-
-> **3 Cargas Mensuales**
-
----
-
-### Doctrina de Hierro
-
-Mediante la doctrina de hierro, refuerzas a uno de los **9 Pretores** recargando sus cápsulas mediante un **dado mórfico**.
-
-| Resultado     | Caps obtenidas |
-|---------------|---------------|
-| **Pifia**     | 0 Caps        |
-| Del 2 al 9    | 1.000 Caps    |
-| **Crítico**   | 2.000 Caps    |
-
-De esta forma podrá utilizar temporalmente uno de los edictos de este Pretor **[No Absoluto]** y el Pretor respetará la Doctrina de Hierro sin actuar contra el Custodio.
-
-> **3 Cargas Mensuales**
-
----
-
-## PRETORES
-
-Los **9 Pretores** tienen la capacidad de imponer su deseo activando sus **edictos** y para ello cada Pretor posee **10.000 Caps mensuales**, que se recuperan cada día 1 del mes.
-
-Los Edictos se pueden activar de forma **Normal** o **Absoluta**, aumentando el costo significativamente. Tras activarse **3 edictos Normales seguidos** o **1 edicto Absoluto**, el sistema se sobrecarga y todos los edictos aumentan su costo de activación **×2**.
-
-| Tipo de activación      | Coste        |
-|-------------------------|-------------|
-| Activación Normal       | 1.000 Caps  |
-| Activación Absoluta     | 6.000 Caps  |
-
-Los Pretores pueden imponer su decisión sobre otro Pretor si activan el mismo edicto tras él, generando un **Parry de Edictos**.
-
-Esto puede efectuarse tantas veces como quieran mientras tengan Caps acumuladas, teniendo en consideración la **sobrecarga ×2** del sistema.
-
----
-
-### Edicto de la Voz
-
-La voz permite al Pretor imponer el resultado definitivo durante una **votación** o crear una **misión prioritaria**.
-
-| Tipo       | Efecto                                                                              |
-|------------|-------------------------------------------------------------------------------------|
-| **Normal** | Impone el resultado de una votación.                                                |
-| **Absoluto** | Crea una misión prioritaria en el directo para desbloquear un artefacto.          |
-
-**Crear una misión prioritaria:**
-
-El Pretor ha de especificar los detalles de la misión y han de ser posibles en el juego activo. Puede usar el chat o discord para recopilar ideas.
-
-Si la misión es completada, el pretor recupera **3.000 Caps**.
-
----
-
-### Edicto de la Sangre
-
-El edicto de la Sangre le permite al Pretor transferir sus Caps de forma directa a la **barra de vidas**.
-
-| Tipo       | Efecto      |
-|------------|-------------|
-| **Normal** | 1 Escudo.   |
-| **Absoluto** | 3 Vidas.  |
-
----
-
-### Edicto de la Alteración
-
-La Alteración permite al Pretor volver a lanzar el dado eliminando el resultado anterior del mismo, o crear un **modificador del dado** en el módulo activo.
-
-| Tipo       | Efecto                                                      |
-|------------|-------------------------------------------------------------|
-| **Normal** | Vuelve a lanzar el dado anulando el resultado anterior.     |
-| **Absoluto** | Crea un modificador del dado.                             |
-
-El **modificador del dado** hace que cada pérdida de vida o escudo sea decidida por el resultado del dado:
-
-| Resultado   | Efecto    |
-|-------------|----------|
-| **Pifia**   | -2 Vidas |
-| Del 2 al 5  | -1 Vidas |
-| Del 6 al 9  | +1 Vidas |
-| **Crítico** | +2 Vidas |
-
----
-
-### Edicto del Avatar
-
-Permite al pretor manipular y activar un artefacto disponible o imponer su presencia como **avatar** en un juego que lo permita.
-*(ejemplos: soldado en XCOM, general en Total War)*
-
-| Tipo       | Efecto                                                                          |
-|------------|---------------------------------------------------------------------------------|
-| **Normal** | Activa un artefacto disponible que el pretor decida o se impone como avatar ingame. |
-| **Absoluto** | Desbloquea un artefacto.                                                      |
-
-Al activar un artefacto por parte de un Pretor se hace una tirada de dados y se añaden condicionantes a la pifia y el crítico:
-
-| Resultado   | Efecto               |
-|-------------|---------------------|
-| **Pifia**   | Pierde 2.000 Caps   |
-| **Crítico** | Gana 3.000 Caps     |
-
----
-
-### Edicto del Juicio
-
-Permite al Pretor efectuar un **Juicio** a un usuario del chat o efectuar un **Juicio Mórfico**.
-
-| Tipo       | Efecto                                                                                                    |
-|------------|-----------------------------------------------------------------------------------------------------------|
-| **Normal** | Genera un Juicio contra 1 usuario del chat.                                                               |
-| **Absoluto** | Genera un Juicio Mórfico contra la versión activa de Yirak, donde se hace una tirada de dado y el pretor puede ganar Caps o perderlos. |
-
-En un **Juicio**, se despliega el chat para poder ver los comentarios de la persona y que el público valore con emotes y palabras en él, si se Enjuicia o se Perdona.
-
-- Enjuiciar a un usuario otorga **+1 vida**.
-- Perdonarlo da **+1 escudo**.
-
-**Resultados de un Juicio Mórfico:**
-
-| Resultado   | Efecto                                                                                  |
-|-------------|-----------------------------------------------------------------------------------------|
-| **Pifia**   | -3.000 Caps.                                                                            |
-| Del 2 al 5  | Gana Yirak y el Pretor no puede volver a usar Edictos ese día.                          |
-| Del 6 al 9  | El Pretor gana +3.000 Caps y se pierden todas las vidas y escudos.                      |
-| **Crítico** | +10.000 Caps; los Caps sobrantes puede distribuirlos al resto de Pretores.              |
-
----
-
-## AMPLIABLES
-
-Durante un Ampliable podrás ver el tiempo restante arriba a la derecha de la pantalla.
-
-Actualmente los Ampliables pueden ser de **10 a 12 horas máximo** y el tiempo al contador se suma con **donaciones**.
-
----
-
-## ALTERACIONES
-
-Con **donaciones** cualquiera puede activar **Alteraciones**, lanzamientos de dado que permiten alterar el stream.
-
-> ∴ La pifia puede generar consecuencias impredecibles.
-
-La donación mínima para activar una Alteración es de **5€** y cada usuario solo puede activar cada una de las Alteraciones **1 vez por directo**.
-
-Durante un Ampliable, una misma donación suma al contador de tiempo, a la barra de sangre (si la permamuerte está activa) y si es una donación de 5€ o más, puede elegir qué Alteración efectuar, todo a la vez.
-
-### Alteración Mórfica
-
-Permite volver a lanzar el dado anulando el lanzamiento previo.
-
----
-
-### Alteración Temporal
-
-Si el dado sale **7 o superior**, activa un ampliable de **10 horas** durante el siguiente fin de semana.
-
----
-
-### Alteración Sanguínea
-
-Si el dado sale **7 o superior**, activa **1 carga del escudo de energía**.
-
----
-
-### Alteración de Interfaz
-
-Si el dado sale **7 o superior**, aumenta el checkpoint **1 hora**.
-
----
-
-### Alteración de Artefacto
-
-Si el dado sale **7 o superior**, activa **1 artefacto**.
-
----
-
-## MANUAL
-
-Sección con recursos visuales y guías adicionales del juego.
-
-- [Votaciones](https://sgomanual.carrd.co/assets/images/gallery01/7c182623_original.jpg)
-- [Vidas](https://sgomanual.carrd.co/assets/images/gallery01/6ca63863_original.jpg)
-- [Escudo de Energía](https://sgomanual.carrd.co/assets/images/gallery01/a5f957a1_original.jpg)
-- [Dado Mórfico](https://sgomanual.carrd.co/assets/images/gallery01/170316b5_original.jpg)
-
----
-
-[← PA'TRAS](https://sgocompendio.carrd.co/)
+## CORE_DEFINITIONS
+
+- DADO_MORFICO:
+  - TYPE: d10
+  - RANGE: 1-10
+  - PIFIA: 1
+  - CRITICO: 10
+- CAPS:
+  - DEFINITION: moneda de activación para Edictos y otros efectos
+  - PRETOR_MONTHLY_BASE: 10000 por Pretor
+  - PRETOR_RESET: día 1 de cada mes
+- VIDAS:
+  - DEFINITION: salud de la barra de vidas
+- CARGAS:
+  - ESCUDO: cargas de escudo/escudo de energía
+  - DOCTRINAS: cargas mensuales de uso para Custodios
+
+## GLOBAL_STATE_RULES
+
+- ARTEFACTOS:
+  - COUNT: 3 tipos (Vida, Tiempo, Muerte)
+  - LIST_COMMAND: escribir `artefactos` en chat para ver disponibles
+  - EFFECT_SOURCE: efectos dependientes de DADO_MORFICO
+  - FRAGILITY: manipulación frágil, puede destruirse por tirada
+  - UNLOCK_PATHS:
+    - completar objetivos/misiones en directo
+    - PRETOR.EDICTO_DEL_AVATAR.ABSOLUTO desbloquea artefacto
+- ARTEFACTO_VIDA:
+  - BASE_EFFECT: +1 carga de Escudo y +1 Vida
+  - USAGE_CONSTRAINT: no usable al morir
+  - ROLL_EFFECTS:
+    - PIFIA: destruye este artefacto; no aplica efecto base
+    - CRITICO: +1 carga de Escudo y +1 Vida adicionales
+- ARTEFACTO_TIEMPO:
+  - BASE_EFFECT: genera Ampliable de 10 horas (próximo fin de semana)
+  - ROLL_EFFECTS:
+    - PIFIA: destruye este artefacto; no aplica efecto base
+    - CRITICO: +2 horas
+- ARTEFACTO_MUERTE:
+  - BASE_EFFECT: impide muerte permanente de 1 módulo/juego al perder todas las vidas
+  - USAGE_CONSTRAINT: usable tras la muerte
+  - ROLL_EFFECTS:
+    - PIFIA: destruye todos los artefactos y anula todos sus efectos
+    - CRITICO: +3 cargas de Escudo
+- SOBRE_CARGA_SISTEMA_EDICTOS:
+  - TRIGGER_A: 3 Edictos Normales seguidos
+  - TRIGGER_B: 1 Edicto Absoluto
+  - EFFECT: todos los Edictos pasan a coste x2
+  - APPLIES_TO: activaciones posteriores, incluyendo parry de edictos
+- EDICTOS_COSTE_BASE:
+  - NORMAL: 1000 Caps
+  - ABSOLUTO: 6000 Caps
+
+## ROLE_REGISTRY: CUSTODIO
+
+- ENTITY: Custodio
+- CAPABILITIES_SUMMARY: ejecuta 4 Doctrinas con cargas mensuales limitadas
+- DOCTRINA_CHARGES_MONTHLY:
+  - DOCTRINA_DE_LA_SANGRE: 1
+  - DOCTRINA_DE_LA_VOLUNTAD: 1
+  - DOCTRINA_DEL_CAMINO: 3
+  - DOCTRINA_DE_HIERRO: 3
+- DOCTRINA_DE_LA_SANGRE:
+  - COST: 1 carga mensual
+  - EFFECT: cancela un Edicto, Alteración o uso de artefacto en curso
+  - TRIGGERS: contrarresta efectos en curso
+  - ENABLES: destrucción del objetivo cancelado
+- DOCTRINA_DE_LA_VOLUNTAD:
+  - COST: 1 carga mensual
+  - ENABLES: activar un Edicto Absoluto
+- DOCTRINA_DEL_CAMINO:
+  - COST: 3 cargas mensuales
+  - ENABLES: crear misión artefacto
+  - DEPENDENCY_CHAIN:
+    - REQUIRES: misión artefacto creada
+    - REQUIRES: un V completa la misión
+    - REQUIRES: artefacto hallado
+    - ENABLES: Custodio activa un artefacto inmediatamente
+- DOCTRINA_DE_HIERRO:
+  - COST: 3 cargas mensuales
+  - TARGET: 1 de los 9 Pretores
+  - REQUIRES: tirada de DADO_MORFICO
+  - CAPS_RECHARGE_BY_ROLL:
+    - PIFIA: +0 Caps
+    - 2_TO_9: +1000 Caps
+    - CRITICO: +2000 Caps
+  - ENABLES:
+    - uso temporal por Custodio de 1 Edicto del Pretor objetivo (NO Absoluto)
+    - Pretor objetivo no actúa contra el Custodio mientras se respeta Doctrina de Hierro
+
+## ROLE_REGISTRY: PRETOR
+
+- ENTITY: Pretor
+- PRETOR_COUNT: 9
+- RESOURCE_MODEL:
+  - CAPS_MONTHLY: 10000 por Pretor
+  - CAPS_RESET: día 1 de cada mes
+- EDICT_ACTIVATION_MODES:
+  - NORMAL: 1000 Caps (aplica SOBRE_CARGA_SISTEMA_EDICTOS si existe)
+  - ABSOLUTO: 6000 Caps (aplica SOBRE_CARGA_SISTEMA_EDICTOS si existe)
+- PARRY_DE_EDICTOS:
+  - TRIGGER: un Pretor activa el mismo Edicto después de otro Pretor
+  - EFFECT: impone su decisión sobre el Pretor anterior
+  - LIMIT: repetible mientras haya Caps acumuladas
+  - REQUIRES: considerar coste x2 si hay sobrecarga
+
+- EDICTO_DE_LA_VOZ:
+  - NORMAL:
+    - EFFECT: impone resultado definitivo de una votación
+  - ABSOLUTO:
+    - EFFECT: crea misión prioritaria en directo para desbloquear artefacto
+    - REQUIRES: detallar misión posible en juego activo
+    - INPUT_SOURCE: ideas por chat o Discord
+    - TRIGGERS: si misión completada, Pretor recupera +3000 Caps
+
+- EDICTO_DE_LA_SANGRE:
+  - EFFECT_CLASS: transfiere Caps a barra de vidas
+  - NORMAL:
+    - EFFECT: +1 Escudo
+  - ABSOLUTO:
+    - EFFECT: +3 Vidas
+
+- EDICTO_DE_LA_ALTERACION:
+  - NORMAL:
+    - EFFECT: relanza dado y anula resultado anterior
+  - ABSOLUTO:
+    - EFFECT: crea modificador del dado en módulo activo
+  - MODIFICADOR_DEL_DADO_RULESET:
+    - PIFIA: -2 Vidas
+    - 2_TO_5: -1 Vida
+    - 6_TO_9: +1 Vida
+    - CRITICO: +2 Vidas
+
+- EDICTO_DEL_AVATAR:
+  - NORMAL:
+    - EFFECT_A: activa 1 artefacto disponible elegido por el Pretor
+    - EFFECT_B: impone presencia como avatar in-game (si juego lo permite)
+  - ABSOLUTO:
+    - EFFECT: desbloquea 1 artefacto
+  - EXTRA_ROLL_WHEN_PRETOR_ACTIVATES_ARTEFACT:
+    - PIFIA: -2000 Caps
+    - CRITICO: +3000 Caps
+
+- EDICTO_DEL_JUICIO:
+  - NORMAL:
+    - EFFECT: genera Juicio contra 1 usuario del chat
+    - JUDGMENT_FLOW:
+      - chat visible para evaluar con emotes/palabras
+      - resultado ENJUICIAR: +1 Vida
+      - resultado PERDONAR: +1 Escudo
+  - ABSOLUTO:
+    - EFFECT: genera Juicio Mórfico contra versión activa de Yirak
+    - REQUIRES: tirada de DADO_MORFICO
+    - ROLL_RESULTS:
+      - PIFIA: -3000 Caps
+      - 2_TO_5: gana Yirak; Pretor no puede usar Edictos ese día
+      - 6_TO_9: Pretor gana +3000 Caps; se pierden todas las Vidas y Escudos
+      - CRITICO: +10000 Caps; Caps sobrantes distribuibles al resto de Pretores
+
+## INTERACTION_TABLE
+
+- INTERACTION: Custodio.Doctrina_de_la_Sangre -> cancela acción en curso
+  - TARGETS: Edicto | Alteración | uso de artefacto
+  - RESPONSE: efectos del objetivo se contrarrestan y el objetivo se destruye
+- INTERACTION: Custodio.Doctrina_de_la_Voluntad -> habilita Edicto Absoluto
+  - TARGETS: capacidades de Edicto
+  - RESPONSE: se permite activación en modo Absoluto
+- INTERACTION: Custodio.Doctrina_del_Camino -> misión artefacto -> activación inmediata
+  - TARGETS: pipeline de desbloqueo/uso de artefacto
+  - RESPONSE: tras completar cadena de dependencias, Custodio activa artefacto inmediatamente
+- INTERACTION: Custodio.Doctrina_de_Hierro -> refuerzo de Pretor
+  - TARGETS: Caps del Pretor objetivo y uso temporal de Edicto no absoluto
+  - RESPONSE: Custodio usa temporalmente 1 Edicto no absoluto; Pretor objetivo no actúa contra Custodio
+- INTERACTION: Pretor A vs Pretor B (Parry de Edictos)
+  - TRIGGER: Pretor B activa mismo Edicto después de Pretor A
+  - RESPONSE: Pretor B impone decisión; repetible con Caps suficientes
+- INTERACTION: Pretor activa artefacto por Edicto del Avatar (Normal)
+  - TRIGGER: activación de artefacto por Pretor
+  - RESPONSE: tirada extra con penalización/bonificación de Caps (Pifia -2000, Crítico +3000)
+
+## EXTERNAL_INFLUENCES
+
+- DONATIONS:
+  - ALTERACION_MIN_DONATION: 5€
+  - ALTERACION_PER_USER_LIMIT: cada usuario puede activar cada Alteración 1 vez por directo
+  - DURING_AMPLIABLE_SINGLE_DONATION_EFFECTS:
+    - suma tiempo al contador
+    - suma a barra de sangre si permamuerte está activa
+    - si donación >= 5€, permite elegir y activar Alteración
+- AMPLIABLES:
+  - DURATION_RANGE: 10 a 12 horas máximo
+  - COUNTER_INCREASE_SOURCE: donaciones
+  - UI: tiempo restante visible arriba a la derecha
+- ALTERACIONES:
+  - ACCESS: cualquier usuario con donación válida puede activar Alteraciones
+  - COMMON_RULE: son tiradas de dado para alterar el stream
+  - PIFIA_NOTE: la pifia puede generar consecuencias impredecibles
+  - ALTERACION_MORFICA:
+    - EFFECT: relanza dado anulando lanzamiento previo
+  - ALTERACION_TEMPORAL:
+    - REQUIRES: resultado de dado >= 7
+    - EFFECT: activa Ampliable de 10 horas el siguiente fin de semana
+  - ALTERACION_SANGUINEA:
+    - REQUIRES: resultado de dado >= 7
+    - EFFECT: activa 1 carga de escudo de energía
+  - ALTERACION_DE_INTERFAZ:
+    - REQUIRES: resultado de dado >= 7
+    - EFFECT: aumenta checkpoint +1 hora
+  - ALTERACION_DE_ARTEFACTO:
+    - REQUIRES: resultado de dado >= 7
+    - EFFECT: activa 1 artefacto

@@ -9,7 +9,10 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const isUsingMockProvider = !import.meta.env.VITE_GEMINI_API_KEY;
+  const devOverride = (globalThis as { importMetaEnv?: { DEV?: unknown } }).importMetaEnv;
+  const isDevEnvironment =
+    typeof devOverride?.DEV === 'boolean' ? devOverride.DEV : import.meta.env.DEV;
+  const isUsingMockProvider = isDevEnvironment;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

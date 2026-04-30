@@ -2,12 +2,19 @@ import type { IAProvider } from './IAProvider';
 import { GeminiProvider } from './GeminiProvider';
 import { MockProvider } from './MockProvider';
 
-export function getProvider(): IAProvider {
-  const geminiKey = import.meta.env.VITE_GEMINI_API_KEY;
-
-  if (geminiKey) {
-    return new GeminiProvider(geminiKey);
+function isDevEnvironment(): boolean {
+  const overriddenEnv = (globalThis as { importMetaEnv?: { DEV?: unknown } }).importMetaEnv;
+  if (typeof overriddenEnv?.DEV === 'boolean') {
+    return overriddenEnv.DEV;
   }
 
-  return new MockProvider();
+  return import.meta.env.DEV;
+}
+
+export function getProvider(): IAProvider {
+  if (isDevEnvironment()) {
+    return new MockProvider();
+  }
+
+  return new GeminiProvider();
 }

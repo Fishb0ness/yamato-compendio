@@ -28,13 +28,13 @@ function deferred<T>(): Deferred<T> {
 
 describe('Spec scenarios', () => {
   beforeEach(() => {
-    vi.stubEnv('VITE_GEMINI_API_KEY', '');
+    vi.stubGlobal('importMetaEnv', { DEV: true });
     getProviderMock.mockReset();
   });
 
   afterEach(() => {
     cleanup();
-    vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
   });
 
   it('Scenario 1: renders title, textarea and submit button', () => {
@@ -87,5 +87,14 @@ describe('Spec scenarios', () => {
     });
 
     expect(queryByText('Respuesta')).toBeNull();
+  });
+
+  it('hides mock notice when app runs in non-dev mode', () => {
+    vi.stubGlobal('importMetaEnv', { DEV: false });
+    getProviderMock.mockReturnValue({ query: vi.fn() });
+
+    const { queryByText } = render(<App />);
+
+    expect(queryByText(/Modo simulación activo/i)).toBeNull();
   });
 });

@@ -2,7 +2,7 @@
 
 Aplicación web para consultar el reglamento de SGO (Stream Game Over) usando IA. Escribe libremente lo que quieres hacer como **Custodio** y la IA busca las opciones disponibles según el manual oficial.
 
-🌐 **Demo en vivo**: [compendio0ai.vercel.app](https://compendio0ai.vercel.app)
+🌐 **Demo en vivo**: [compendio-ai.vercel.app](https://compendio-ai.vercel.app)
 
 ---
 
