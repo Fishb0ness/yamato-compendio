@@ -26,7 +26,7 @@ describe('GeminiProvider', () => {
     expect(result).toBe('Respuesta Custodio');
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=test-key',
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=test-key',
       expect.objectContaining({ method: 'POST' })
     );
 

@@ -2,7 +2,7 @@ import type { IAProvider } from './IAProvider';
 import { loadManual } from '../utils/manualLoader';
 
 const GEMINI_API_URL =
-  'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+  'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent';
 
 export class GeminiProvider implements IAProvider {
   private apiKey: string;
